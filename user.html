@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>User Manual &#8212; Shane 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Shane 1.0 documentation" href="index.html" />
+    <link rel="next" title="Developer Guide" href="developer.html" />
+    <link rel="prev" title="Shane" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="developer.html" title="Developer Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Shane"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Shane 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-manual">
+<h1>User Manual<a class="headerlink" href="#user-manual" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">OS:</th><td class="field-body">Linux or MacOS</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Software:</th><td class="field-body">Python 3.3 or higher, ncurses</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><em>Shane</em> does <em>not</em> need to be installed. Still, if you like to then run
+<code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> on the command line from <em>Shane&#8217;s</em> root directory.</p>
+</div>
+<div class="section" id="run">
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p>Either run <code class="docutils literal"><span class="pre">python</span> <span class="pre">run.py</span></code> from <em>Shane&#8217;s</em> root directory or (if installed)
+simply run <code class="docutils literal"><span class="pre">shane</span></code> from wherever. To start <em>Shane</em> with opening a screenplay
+(for supported file formats, see <a class="reference internal" href="#supported-file-formats">Supported File Formats</a>) add the path as
+a parameter, e.g. <code class="docutils literal"><span class="pre">python</span> <span class="pre">run.py</span> <span class="pre">/home/hotshot/screenplays/romcom.fountain</span></code>
+or <code class="docutils literal"><span class="pre">shane</span> <span class="pre">/home/hotshot/screenplays/romcom.fountain</span></code>.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>This is how to use <em>Shane:</em></p>
+<div class="section" id="screenplay-window">
+<h3>Screenplay Window<a class="headerlink" href="#screenplay-window" title="Permalink to this headline">¶</a></h3>
+<p>The screenplay window is where the magic happens! Type in or delete characters
+and navigate through the script!</p>
+<p>Press <code class="docutils literal"><span class="pre">Esc</span></code> to switch to the menu.</p>
+<div class="section" id="movement">
+<h4>Movement<a class="headerlink" href="#movement" title="Permalink to this headline">¶</a></h4>
+<p>Use the arrow keys or <code class="docutils literal"><span class="pre">Home</span></code> or <code class="docutils literal"><span class="pre">End</span></code> to move the cursor.</p>
+<p>Press <code class="docutils literal"><span class="pre">Page</span> <span class="pre">Up</span></code> or <code class="docutils literal"><span class="pre">Page</span> <span class="pre">Down</span></code> to jump to the previous or next scene heading.</p>
+</div>
+<div class="section" id="new-paragraphs-and-conversion">
+<h4>New Paragraphs And Conversion<a class="headerlink" href="#new-paragraphs-and-conversion" title="Permalink to this headline">¶</a></h4>
+<p>Press <code class="docutils literal"><span class="pre">Enter</span></code> to create a new paragraph. Which type this new paragraph&#8217;s of
+depends on the current paragraph&#8217;s type. <code class="docutils literal"><span class="pre">Enter</span></code> works slightly different for
+<code class="docutils literal"><span class="pre">NAME</span></code> paragraphs in that it won&#8217;t cut up the paragraph.</p>
+<p>Press <code class="docutils literal"><span class="pre">Tab</span></code> to convert the current paragraph. Which type this converts to
+depends on the paragraph&#8217;s current type.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="23%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Paragraph Type</th>
+<th class="head"><code class="docutils literal"><span class="pre">Enter</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">Tab</span></code></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">SCENE</span></code></td>
+<td><code class="docutils literal"><span class="pre">ACTION</span></code></td>
+<td><code class="docutils literal"><span class="pre">ACTION</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">ACTION</span></code></td>
+<td><code class="docutils literal"><span class="pre">ACTION</span></code></td>
+<td><code class="docutils literal"><span class="pre">NAME</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">NAME</span></code></td>
+<td><code class="docutils literal"><span class="pre">DIALOG</span></code></td>
+<td><code class="docutils literal"><span class="pre">ACTION</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">PARENTHETICALS</span></code></td>
+<td><code class="docutils literal"><span class="pre">DIALOG</span></code></td>
+<td><code class="docutils literal"><span class="pre">DIALOG</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">DIALOG</span></code></td>
+<td><code class="docutils literal"><span class="pre">NAME</span></code></td>
+<td><code class="docutils literal"><span class="pre">PARENTHETICALS</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <code class="docutils literal"><span class="pre">Shift</span></code> with the left or right arrow keys to cycle through types for the
+current paragraph backward or forward, respectively. The forward order being
+<code class="docutils literal"><span class="pre">SCENE</span></code>, <code class="docutils literal"><span class="pre">ACTION</span></code>, <code class="docutils literal"><span class="pre">NAME</span></code>, <code class="docutils literal"><span class="pre">PARENTHETICALS</span></code>, <code class="docutils literal"><span class="pre">DIALOG</span></code>.</p>
+</div>
+<div class="section" id="autocomplete">
+<h4>Autocomplete<a class="headerlink" href="#autocomplete" title="Permalink to this headline">¶</a></h4>
+<p>Press <code class="docutils literal"><span class="pre">_</span></code> (underscore) in a <code class="docutils literal"><span class="pre">NAME</span></code> paragraph to autocomplete a name (and
+cycle through names). For autocomplete to work at least one character must have
+already been typed in. Also, a name database must have been built, see
+<a class="reference internal" href="#rebuild-name-db">Rebuild Name DB</a>.</p>
+</div>
+</div>
+<div class="section" id="menu">
+<h3>Menu<a class="headerlink" href="#menu" title="Permalink to this headline">¶</a></h3>
+<p>Use the arrow keys to navigate through the top level menu. Press <code class="docutils literal"><span class="pre">Esc</span></code> to
+switch the screenplay window. Press <code class="docutils literal"><span class="pre">Enter</span></code> to go to the highlighted sub menu
+or menu item.</p>
+<div class="section" id="save-as">
+<h4>Save As<a class="headerlink" href="#save-as" title="Permalink to this headline">¶</a></h4>
+<p>Type in the path to save the screenplay to, then hit <code class="docutils literal"><span class="pre">Enter</span></code> to save. Press
+<code class="docutils literal"><span class="pre">Esc</span></code> to cancel and go back to the top level menu. For supported file formats,
+see <a class="reference internal" href="#supported-file-formats">Supported File Formats</a>.</p>
+</div>
+<div class="section" id="undo">
+<h4>Undo<a class="headerlink" href="#undo" title="Permalink to this headline">¶</a></h4>
+<p>Undo previous action.</p>
+</div>
+<div class="section" id="redo">
+<h4>Redo<a class="headerlink" href="#redo" title="Permalink to this headline">¶</a></h4>
+<p>Redo previously undone action.</p>
+</div>
+<div class="section" id="rebuild-name-db">
+<h4>Rebuild Name DB<a class="headerlink" href="#rebuild-name-db" title="Permalink to this headline">¶</a></h4>
+<p>For autocomplete to work a name database has to be built (and rebuilt for every
+new or deleted character) (automatic building planned for future versions).
+This menu item will do just that.</p>
+</div>
+<div class="section" id="quit">
+<h4>Quit<a class="headerlink" href="#quit" title="Permalink to this headline">¶</a></h4>
+<p>Quit <em>Shane.</em></p>
+</div>
+</div>
+</div>
+<div class="section" id="supported-file-formats">
+<h2>Supported File Formats<a class="headerlink" href="#supported-file-formats" title="Permalink to this headline">¶</a></h2>
+<p><em>Shane</em> reads</p>
+<ul class="simple">
+<li>Fountain (*.fountain)</li>
+</ul>
+<p>and writes</p>
+<ul class="simple">
+<li>Fountain (*.fountain)</li>
+</ul>
+</div>
+<div class="section" id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Why no transitions?</strong> <em>Shane&#8217;s</em> developer doesn&#8217;t like them. Is that a good
+reason to keep everyone else from using them? Probably: The very rare (and still
+avoidable) cases transitions <em>are</em> useful don&#8217;t make up for cluttering up
+<em>Shane&#8217;s</em> source code.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer Guide</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Shane</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="developer.html"
+                        title="next chapter">Developer Guide</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="developer.html" title="Developer Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Shane"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Shane 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Tobias Heukäufer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

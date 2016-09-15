@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Fountain &#8212; Shane 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Shane 1.0 documentation" href="../../../index.html" />
+    <link rel="up" title="IO" href="../io.html" />
+    <link rel="next" title="To Do" href="../../todo.html" />
+    <link rel="prev" title="IO" href="../io.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../todo.html" title="To Do"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../io.html" title="IO"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Shane 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../developer.html" >Developer Guide</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../modules.html" >Modules</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="../io.html" accesskey="U">IO</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fountain">
+<h1>Fountain<a class="headerlink" href="#fountain" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://fountain.io/">Fountain</a> is a plain text markup language for
+screenwriting. It doesn&#8217;t exist for a specific software which makes it perfect
+as the current default (and only) input and output format for <em>Shane</em>.</p>
+<div class="section" id="design-decisions">
+<h2>Design Decisions<a class="headerlink" href="#design-decisions" title="Permalink to this headline">¶</a></h2>
+<p>Sadly Fountain&#8217;s syntax seems to be either ambiguously defined or wrongly
+interpreted (e.g. <a class="reference external" href="http://www.trelby.org/">Trelby</a> doesn&#8217;t precede the scene
+heading with an empty line if it&#8217;s a screenplay&#8217;s very first element). That&#8217;s
+why it&#8217;s been decided that the first line of a Fountain file is understood to be
+preceded by empty lines.</p>
+<p>Also, while Fountain defines a large list of screenplay elements <em>Shane&#8217;s</em>
+Fountain reader (and writer) only understand a small subset of them due to not
+supporting a large list of screenplay elements itself. Most elements not known
+by <em>Shane</em> should be read as actions but the user cannot rely on it. <em>Shane</em>
+understands:</p>
+<ul class="simple">
+<li>Scene Headings</li>
+<li>Actions</li>
+<li>Names</li>
+<li>Parentheticals</li>
+<li>Dialogs</li>
+</ul>
+</div>
+<div class="section" id="module-shane.io.fountain">
+<span id="source-code-docstrings"></span><h2>Source Code Docstrings<a class="headerlink" href="#module-shane.io.fountain" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="shane.io.fountain.read">
+<code class="descclassname">shane.io.fountain.</code><code class="descname">read</code><span class="sig-paren">(</span><em>path: str</em><span class="sig-paren">)</span><a class="headerlink" href="#shane.io.fountain.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read fountain script from path.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shane.io.fountain.write">
+<code class="descclassname">shane.io.fountain.</code><code class="descname">write</code><span class="sig-paren">(</span><em>path</em>, <em>paragraphs</em><span class="sig-paren">)</span><a class="headerlink" href="#shane.io.fountain.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save fountain script to path.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../../../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../user.html">User Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../developer.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sp_view.html">Screenplay View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../menu_view.html">Menu View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../screenplay.html">Screenplay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../paragraph.html">Paragraph</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../io.html">IO</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Fountain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../todo.html">To Do</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../io.html"
+                        title="previous chapter">IO</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../todo.html"
+                        title="next chapter">To Do</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../todo.html" title="To Do"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../io.html" title="IO"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Shane 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../developer.html" >Developer Guide</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../modules.html" >Modules</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="../io.html" >IO</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Tobias Heukäufer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

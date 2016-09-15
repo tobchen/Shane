@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Screenplay View &#8212; Shane 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Shane 1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Modules" href="../modules.html" />
+    <link rel="next" title="Menu View" href="menu_view.html" />
+    <link rel="prev" title="Main" href="main.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="menu_view.html" title="Menu View"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Main"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Shane 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../developer.html" >Developer Guide</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../modules.html" accesskey="U">Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="screenplay-view">
+<h1>Screenplay View<a class="headerlink" href="#screenplay-view" title="Permalink to this headline">¶</a></h1>
+<p>The screenplay view takes input and translates it into screenplay commands
+(cursor movement, text editing, etc.) and draws the screenplay.</p>
+<div class="section" id="drawing">
+<h2>Drawing<a class="headerlink" href="#drawing" title="Permalink to this headline">¶</a></h2>
+<p>Drawing the screenplay is very likely the most time consuming step in <em>Shane&#8217;s</em>
+program flow. Here is how it works:</p>
+<ol class="arabic simple">
+<li>Get cursor position (line and column) in screenplay</li>
+<li>Calculate scrollbar slider position (using screenplay&#8217;s total line count)</li>
+<li>If required scroll view either up or down so that cursor&#8217;s in view</li>
+<li>Get paragraph the first visible line&#8217;s in and offset of that line from
+paragraph start</li>
+<li>Draw all paragraphs visible line by line starting with the first visible line</li>
+<li>Draw scrollbar</li>
+<li>Set cursor</li>
+</ol>
+</div>
+<div class="section" id="design-decisions">
+<h2>Design Decisions<a class="headerlink" href="#design-decisions" title="Permalink to this headline">¶</a></h2>
+<p>The scrollbar is not drawn as far down as it seemingly can be. It can&#8217;t.
+ncurses throws an error when drawing a character at the lower right. A solution
+would be to make the screenplay view window one column wider but the aesthetics
+wouldn&#8217;t make up for the &#8220;ugliness&#8221; in code and more importantly a whole new
+column to clear with every draw pass (without actually being drawn on anyway).</p>
+</div>
+<div class="section" id="module-shane.sp_view">
+<span id="source-code-docstrings"></span><h2>Source Code Docstrings<a class="headerlink" href="#module-shane.sp_view" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shane.sp_view.ScreenplayView">
+<em class="property">class </em><code class="descclassname">shane.sp_view.</code><code class="descname">ScreenplayView</code><span class="sig-paren">(</span><em>screenplay: shane.screenplay.Screenplay</em><span class="sig-paren">)</span><a class="headerlink" href="#shane.sp_view.ScreenplayView" title="Permalink to this definition">¶</a></dt>
+<dd><p>View for screenplay editing.</p>
+<dl class="staticmethod">
+<dt id="shane.sp_view.ScreenplayView.get_required_window_width">
+<em class="property">static </em><code class="descname">get_required_window_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#shane.sp_view.ScreenplayView.get_required_window_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return minimum width needed for view.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shane.sp_view.ScreenplayView.redraw">
+<code class="descname">redraw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#shane.sp_view.ScreenplayView.redraw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completely redraw screen view.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shane.sp_view.ScreenplayView.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#shane.sp_view.ScreenplayView.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run screenplay view&#8217;s mainloop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shane.sp_view.ScreenplayViewEvent">
+<em class="property">class </em><code class="descclassname">shane.sp_view.</code><code class="descname">ScreenplayViewEvent</code><a class="headerlink" href="#shane.sp_view.ScreenplayViewEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum for results from editing mainloop.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user.html">User Manual</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../developer.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="main.html">Main</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Screenplay View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="menu_view.html">Menu View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="screenplay.html">Screenplay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="paragraph.html">Paragraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html">IO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../todo.html">To Do</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="main.html"
+                        title="previous chapter">Main</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="menu_view.html"
+                        title="next chapter">Menu View</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="menu_view.html" title="Menu View"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="Main"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Shane 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../developer.html" >Developer Guide</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../modules.html" >Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Tobias Heukäufer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
