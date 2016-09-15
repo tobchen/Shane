@@ -37,7 +37,7 @@ Run
 ===
 
 Either run ``python run.py`` from *Shane's* root directory or (if installed)
-simply run ``shane`` from wherever. To start *Shane* with opening a screen play
+simply run ``shane`` from wherever. To start *Shane* with opening a screenplay
 add the path as a parameter, e.g.
 ``python run.py /home/hotshot/screenplays/romcom.fountain`` or
 ``shane /home/hotshot/screenplays/romcom.fountain``.
@@ -45,7 +45,7 @@ add the path as a parameter, e.g.
 User Manual
 ===========
 
-See docs.
+Visit `the documentation. <https://tobchen.github.io/Shane/>`_
 
 To Do
 =====
